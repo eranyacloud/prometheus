@@ -1,0 +1,474 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 130,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ReGmuCaMk"
+      },
+      "description": "Max: 10MB  \nRed Status: 9MB",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "min": -2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "interval": "300s",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ReGmuCaMk"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "quantile_over_time(0.95,\r\n  irate(ifHCOutOctets{instance=\"$Instance\",ifAlias=\"$ifAlias\"}[5m])[$__range:5m]\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Out Usage Switch $Instance Port $ifAlias",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "ifAlias": false,
+              "ifHighSpeed": true,
+              "ifIndex": true,
+              "ifName": true,
+              "instance": false,
+              "job": true,
+              "router_range": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ReGmuCaMk"
+      },
+      "description": "Max: 10MB  \nRed Status: 9MB",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "min": -2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "interval": "300s",
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.5.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ReGmuCaMk"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "quantile_over_time(0.95,\r\n  irate(ifHCInOctets{instance=\"$Instance\",ifAlias=\"$ifAlias\"}[5m])[$__range:5m]\r\n)",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "In Usage Switch $Instance Port $ifAlias",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "ifAlias": false,
+              "ifHighSpeed": true,
+              "ifIndex": true,
+              "ifName": true,
+              "instance": false,
+              "job": true,
+              "router_range": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ReGmuCaMk"
+      },
+      "description": "Max: 10MB  \nRed Status: 9MB",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 18,
+        "w": 12,
+        "x": 0,
+        "y": 5
+      },
+      "id": 3,
+      "interval": "300s",
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "9.5.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ReGmuCaMk"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "irate(ifHCOutOctets{instance=\"$Instance\",ifAlias=\"$ifAlias\"}[5m])",
+          "format": "table",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{ifName}} ({{ifAlias}})",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Out Usage Switch $Instance Port $ifAlias",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "ifAlias": false,
+              "ifHighSpeed": true,
+              "ifIndex": true,
+              "ifName": true,
+              "instance": false,
+              "job": true,
+              "router_range": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ReGmuCaMk"
+      },
+      "description": "Max: 10MB  \nRed Status: 9MB",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 18,
+        "w": 12,
+        "x": 12,
+        "y": 5
+      },
+      "id": 5,
+      "interval": "300s",
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "9.5.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ReGmuCaMk"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "irate(ifHCInOctets{instance=\"$Instance\",ifAlias=\"$ifAlias\"}[5m])",
+          "format": "table",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{ifName}} ({{ifAlias}})",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "In Usage Switch $Instance Port $ifAlias",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "ifAlias": false,
+              "ifHighSpeed": true,
+              "ifIndex": true,
+              "ifName": true,
+              "instance": false,
+              "job": true,
+              "router_range": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "TBZ-SC2-D35-sw-00224.greenweb.local",
+          "value": "TBZ-SC2-D35-sw-00224.greenweb.local"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ReGmuCaMk"
+        },
+        "definition": "label_values(ifHCInOctets{job=\"snmp_switch\"}, instance)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Instance",
+        "multi": false,
+        "name": "Instance",
+        "options": [],
+        "query": {
+          "query": "label_values(ifHCInOctets{job=\"snmp_switch\"}, instance)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "00349-Fib1",
+          "value": "00349-Fib1"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "ReGmuCaMk"
+        },
+        "definition": "label_values(ifHCInOctets{job=\"snmp_switch\",instance=\"$Instance\"}, ifAlias)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "ifAlias",
+        "multi": false,
+        "name": "ifAlias",
+        "options": [],
+        "query": {
+          "query": "label_values(ifHCInOctets{job=\"snmp_switch\",instance=\"$Instance\"}, ifAlias)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "95 %",
+  "uid": "M-XomEfVz",
+  "version": 14,
+  "weekStart": ""
+}
